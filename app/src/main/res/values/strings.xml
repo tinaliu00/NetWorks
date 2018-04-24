@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">NetWorks</string>
+    <string name="description">NetWorks is a simple network monitoring app that captures packets and
+    presents them in an easy to digest manner.</string>
+    <string name="settings">Settings</string>
+    <string name="view">View</string>
+    <string name="capture">Capture</string>
+</resources>
