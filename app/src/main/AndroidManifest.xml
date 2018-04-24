@@ -16,6 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Settings"
+            android:label="@string/settings">
+        </activity>
+        <activity android:name=".appView"
+            android:label="@string/view">
+        </activity>
     </application>
 
 </manifest>

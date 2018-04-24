@@ -5,4 +5,8 @@
     <string name="settings">Settings</string>
     <string name="view">View</string>
     <string name="capture">Capture</string>
+    <string name="settingsDescription">Modify your settings here. Access filters, modes, and records.</string>
+    <string name="filters">Filters</string>
+    <string name="modes">Modes</string>
+    <string name="records">Records</string>
 </resources>

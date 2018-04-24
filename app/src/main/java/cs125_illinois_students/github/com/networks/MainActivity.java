@@ -1,5 +1,6 @@
 package cs125_illinois_students.github.com.networks;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,12 +14,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+
     public void clickSettings(View view) {
-        Toast.makeText(this,"Settings clicked!", 10).show();
+        //Toast.makeText(this,"Settings clicked!", 10).show();
+        startActivity(new Intent(this, Settings.class));
     }
 
     public void clickView(View view) {
-        Toast.makeText(this,"View clicked!", 10).show();
+        //Toast.makeText(this,"View clicked!", 10).show();
+        startActivity(new Intent(this, appView.class));
     }
 
     public void clickCapture(View view) {
