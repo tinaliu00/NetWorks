@@ -27,21 +27,12 @@
         android:onClick="clickSettings" />
 
     <Button
-        android:id="@+id/view"
+        android:id="@+id/generate"
         style="?android:attr/buttonBarButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="@string/view"
-        android:onClick="clickView" />
-
-    <Button
-        android:id="@+id/capture"
-        style="?android:attr/buttonBarButtonStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/capture"
-        android:onClick="clickCapture" />
+        android:text="@string/generate"
+        android:onClick="clickGenerate" />
 
 </LinearLayout>

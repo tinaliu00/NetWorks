@@ -16,16 +16,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void clickSettings(View view) {
-        //Toast.makeText(this,"Settings clicked!", 10).show();
         startActivity(new Intent(this, Settings.class));
     }
 
-    public void clickView(View view) {
-        //Toast.makeText(this,"View clicked!", 10).show();
-        startActivity(new Intent(this, appView.class));
+    public void clickGenerate(View view) {
+        startActivity(new Intent(this, Generate.class));
     }
 
-    public void clickCapture(View view) {
-        Toast.makeText(this,"Capture clicked!", 10).show();
+    public void clickEncrypt(View view) {
+        startActivity(new Intent(this, Encrypt.class));
     }
 }

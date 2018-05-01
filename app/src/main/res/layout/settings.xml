@@ -18,30 +18,11 @@
         android:textAppearance="@android:style/TextAppearance.Material.Subhead" />
 
     <Button
-        android:id="@+id/filters"
+        android:id="@+id/bits"
         style="?android:attr/buttonBarButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="@string/filters"
-        android:onClick="clickFilters" />
-
-    <Button
-        android:id="@+id/modes"
-        style="?android:attr/buttonBarButtonStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/modes"
-        android:onClick="clickModes" />
-
-    <Button
-        android:id="@+id/records"
-        style="?android:attr/buttonBarButtonStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/records"
-        android:onClick="clickRecords" />
+        android:onClick="clickBits" />
 
 </LinearLayout>
