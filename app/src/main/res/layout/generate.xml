@@ -14,6 +14,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:text="@string/generateNew"
+        android:onClick="clickNew" />
+
+    <Button
+        android:id="@+id/clickPublic"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:text="@string/displayPublic"
         android:onClick="clickPublic" />
 

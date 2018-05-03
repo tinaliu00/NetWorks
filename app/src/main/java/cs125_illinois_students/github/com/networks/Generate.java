@@ -3,12 +3,10 @@ package cs125_illinois_students.github.com.networks;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v7.app.AppCompatActivity;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Toast;
-import android.widget.TextView;
 import android.util.Log;
-import android.util.Base64;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -18,44 +16,39 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 
 public class Generate extends Settings {
-    private static final String TAG = "Generate";
-    protected KeyPair keyPair;
-    protected String[] publicPrivateArray = new String[2];
+    protected static final String TAG = "Generate";
+    protected static KeyPair keyPair;
+    protected static PublicKey myPublicKey;
+    protected static PrivateKey myPrivateKey;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        publicPrivateArray = createDisplayKeyPair();
         setContentView(R.layout.generate);
     }
 
-    public void clickSave(View view) {
-
-        saveToStorage(keyPair.getPublic(), keyPair.getPrivate());
-        Toast.makeText(this,"Saved!", 10).show();
-    }
+    public void clickNew(View view) { createKeyPair(); }
     public void clickPublic(View view) {
         startActivity(new Intent(this, MyPublicKey.class));
     }
     public void clickPrivate(View view) {
         startActivity(new Intent(this, MyPrivateKey.class));
     }
+    public void clickSave(View view) {
+        saveToStorage(myPublicKey, myPrivateKey);
+    }
 
-    protected String[] createDisplayKeyPair() {
+    private void createKeyPair() {
         try {
             KeyPairGenerator myKeyPair = KeyPairGenerator.getInstance("RSA");
-            myKeyPair.initialize(bitLength);
+            myKeyPair.initialize(bitLength, new SecureRandom());
             keyPair = myKeyPair.generateKeyPair();
-            publicPrivateArray[0] = Base64.encodeToString(keyPair.getPublic().getEncoded(), Base64.DEFAULT);
-            publicPrivateArray[1] = Base64.encodeToString(keyPair.getPrivate().getEncoded(), Base64.DEFAULT);
-            return publicPrivateArray;
+            myPublicKey = keyPair.getPublic();
+            myPrivateKey = keyPair.getPrivate();
+            Log.e(TAG, Base64.encodeToString(myPrivateKey.getEncoded(), Base64.DEFAULT));
         } catch (NoSuchAlgorithmException e) {
             Log.e(TAG, "NoSuchAlgorithmException detected: " + e.getMessage());
         }
-        String[] uhOh = new String[2];
-        uhOh[0] = "Oops. An error has occurred.";
-        uhOh[1] = "Please yell at the coder.";
-        return uhOh;
     }
 
     private void saveToStorage(PublicKey part, PrivateKey parttwo) {
@@ -69,8 +62,10 @@ public class Generate extends Settings {
             writeMe.write(parttwo.toString());
             writeMe.flush();
             writeMe.close();
+            Toast.makeText(this,"Saved!", 10).show();
         } catch (Exception e) {
             Log.e(TAG, "Exception detected: " + e.getMessage());
+            Toast.makeText(this,"Error saving!", 10).show();
         }
     }
 

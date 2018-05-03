@@ -1,7 +1,10 @@
 package cs125_illinois_students.github.com.networks;
 
 import android.os.Bundle;
+import android.util.Base64;
 import android.widget.TextView;
+import android.util.Log;
+import android.widget.Toast;
 
 public class MyPrivateKey extends Generate {
     @Override
@@ -9,7 +12,15 @@ public class MyPrivateKey extends Generate {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.privatekey);
         TextView privateView = findViewById(R.id.displayPrivate);
-        privateView.setText(publicPrivateArray[1]);
+        try {
+            privateView.setText(displayPrivateKey());
+        } catch (Exception e) {
+            Toast.makeText(this,"Error. No private key found!", 10).show();
+        }
+    }
+
+    private String displayPrivateKey() {
+        return Base64.encodeToString(myPrivateKey.getEncoded(), Base64.DEFAULT);
     }
 }
 

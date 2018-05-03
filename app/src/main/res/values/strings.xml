@@ -6,6 +6,7 @@
     <string name="bits">Bits: %1$s</string>
     <string name="output">Output</string>
     <string name="generate">Generate</string>
+    <string name="generateNew">New</string>
     <string name="encrypt">Encrypt</string>
     <string name="decrypt">Decrypt</string>
     <string name="publickey">Public Key</string>
